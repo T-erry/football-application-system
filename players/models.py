@@ -35,6 +35,7 @@ class Player(models.Model):
     current_season_stats = models.JSONField(null=True)
 
     class Meta:
+        
         indexes = [
             models.Index(fields=["id", "market_value"])
         ]
