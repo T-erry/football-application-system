@@ -8,9 +8,10 @@ from users .models import User
 from api.serializers.users import UserSerializer, RegisterSerializer, LoginSerializer
 from players.models import Player
 from api.serializers.players import PlayerSerializer
-
+from api.permissions import UserPermissions
 
 class UserViewset(viewsets.ModelViewSet):
+    permission_classes= [UserPermissions]
 
     http_method_names =['get', 'patch', "delete", 'post']
 
@@ -21,6 +22,8 @@ class UserViewset(viewsets.ModelViewSet):
 
     def get_object(self):
         user = User.objects.get_object_by_public_id(self.kwargs['pk'] )
+        # Check permissions against this specific user object
+        self.check_object_permissions(request=self.request, obj=user)
         return user
     
 
