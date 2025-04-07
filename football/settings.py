@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     #third party library
     'rest_framework', 
     'rest_framework_simplejwt',
+     'django_celery_results',
+
     'players',
     'users.apps.UsersConfig',
     'api',
@@ -150,3 +152,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Celery Configuration Options
+CELERY_BROKER_URL = 'redis://localhost:6379/0'#message Broker
+CELERY_RESULT_BACKEND = "django-db" # tells celery to store its task results in the django database, to easily monitor the status of our django app
+CELERY_TIMEZONE = 'UTC'
