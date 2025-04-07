@@ -14,9 +14,9 @@ The goal of this project was to build a secure, scalable, and well-structured RE
 - GET	    /api/players/	- List all players
 - GET	    /api/players/?search=	- Search/filter players
 - GET     /api/users/  - List all users
-- DELETE	api/users/<id>/	- Delete a user 
-- POST	/api/users/<uuid>/toggle_favorite/	- Toggle a favorite player for the user
-- GET	   /api/users/<uuid>/list_favorites/	- List all favorited players for the authenticated user
+- DELETE	api/users/uuid/	- Delete a user 
+- POST	/api/users/uuid/toggle_favorite/	- Toggle a favorite player for the user
+- GET	   /api/users/uuid/list_favorites/	- List all favorited players for the authenticated user
 
 ### Data Management
 - Loaded a custom JSON dataset of footballers into the PostgreSQL database.
