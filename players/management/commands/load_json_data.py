@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         with open("/home/terry-tech/fun-projects/django_players_backend/cleaned_player_data.json", "r") as fp:
             players_data = json.load(fp)
-
+        # date_str = "Jan 15, 2023"
         def parse_date(date_str):
             if date_str:
                 try:

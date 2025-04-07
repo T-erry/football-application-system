@@ -1,6 +1,8 @@
 import os
 
 from celery import Celery
+from celery.schedules import crontab
+
 
 #telling celery where to look for Django settings
 # Set the default Django settings module for the 'celery' program.
@@ -16,6 +18,16 @@ app = Celery('football')
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
+app.conf.beat_schedule = {
+    "count_players": {
+        "task": "players.tasks.count_players",
+        "schedule": 30.0
+    },
+    "update_players_everyday":{
+        "task": "players.tasks.update_players_from_json",
+        "schedule": crontab(hour=13, minute=53)
+    },
+}
 
 # tells celery to search for tasks in all registered Django app configs
 # Load task modules from all registered Django apps.
