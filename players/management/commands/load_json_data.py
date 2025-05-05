@@ -2,13 +2,15 @@ import json
 from players.models import Player
 from django.core.management.base import BaseCommand
 from datetime import datetime
-
+import os
+from django.conf import settings
 
 class Command(BaseCommand):
     help = "Load data from JSON file"
 
     def handle(self, *args, **kwargs):
-        with open("/home/terry-tech/fun-projects/django_players_backend/cleaned_player_data.json", "r") as fp:
+        path =os.path.join(settings.BASE_DIR, "cleaned_player_data.json")
+        with open(path, "r") as fp:
             players_data = json.load(fp)
         # date_str = "Jan 15, 2023"
         def parse_date(date_str):

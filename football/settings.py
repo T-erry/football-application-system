@@ -54,7 +54,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
-
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
     
@@ -105,10 +104,10 @@ WSGI_APPLICATION = 'football.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': "django.db.backends.postgresql",
-       'NAME': "djangodb",
-       'USER': "djangouser",
-       'PASSWORD': "testing321",
-       'HOST': "localhost",
+       'NAME': "postgres",
+       'USER': "postgres",
+       'PASSWORD': "postgres",
+       'HOST': "db",
        'PORT': "5432",
    }
 }
@@ -155,7 +154,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Celery Configuration Options
-CELERY_BROKER_URL = 'redis://localhost:6379/0'#message Broker
+CELERY_BROKER_URL = 'redis://redis:6379/0'#message Broker
 CELERY_RESULT_BACKEND = "django-db" # tells celery to store its task results in the django database, to easily monitor the status of our django app
 CELERY_TIMEZONE = 'UTC'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
