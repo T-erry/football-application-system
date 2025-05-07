@@ -7,16 +7,20 @@ The goal of this project was to build a secure, scalable, and well-structured RE
 - Configured a PostgreSQL database for performance and scalability.
 
 ## API Endpoints
-
+### Authentication
 - POST	api/auth/register/	- Register a new user
 - POST	/api/auth/login/	- Login & get JWT token
 - POST	/api/token/refresh/	- Refresh JWT access token
-- GET	    /api/players/	- List all players
-- GET	    /api/players/?search=	- Search/filter players
+
+### User Management
 - GET     /api/users/  - List all users
 - DELETE	api/users/uuid/	- Delete a user 
 - POST	/api/users/uuid/toggle_favorite/	- Toggle a favorite player for the user
 - GET	   /api/users/uuid/list_favorites/	- List all favorited players for the authenticated user
+
+### Player Management
+- GET	    /api/players/	- List all players
+- GET	    /api/players/?search=	- Search/filter players
 
 ### Data Management
 - Loaded a custom JSON dataset of footballers into the PostgreSQL database.
