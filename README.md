@@ -46,5 +46,7 @@ Added list filters, custom display fields, and search functionality for a smooth
 
 - Authentication: JWT (via SimpleJWT)
 
+- Task Queue / Background Jobs: Celery with Redis as the broker
+
 - Admin: Django Admin with custom filters/search
 
