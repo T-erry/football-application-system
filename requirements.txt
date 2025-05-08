@@ -19,6 +19,7 @@ defer==1.0.4
 defusedxml==0.7.1
 distlib==0.3.8
 distro==1.4.0
+dj-database-url==1.2.0
 Django==4.2.11
 django-crispy-forms==2.3
 crispy-bootstrap4==2024.10
